@@ -26,6 +26,7 @@ export default function CurrentData(props) {
 			<VisualGraph
 				dailyQuoteValues={dailyQuoteValues}
 				dailyQuoteDates={dailyQuoteDates}
+				metaData={metaData}
 			/>
 		</>
 	);

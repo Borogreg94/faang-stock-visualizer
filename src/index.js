@@ -19,7 +19,7 @@ const theme = createMuiTheme({
 		},
 		AMZN: {
 			primary: '#232f30',
-			secondary: '#d6d849',
+			secondary: '#FF9900',
 			third: '#5a6484',
 		},
 		NFLX: {
@@ -28,9 +28,9 @@ const theme = createMuiTheme({
 			third: '#ffffff',
 		},
 		GOOGL: {
-			primary: '#34a853',
-			secondary: '#4285f4',
-			third: '#fbc034',
+			primary: '#0F9D58',
+			secondary: '#fbc034',
+			third: '#4285f4',
 		},
 	},
 	typography: {

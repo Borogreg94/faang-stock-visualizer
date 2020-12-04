@@ -15,7 +15,7 @@ import netflixIcon from './icons/netflix.svg';
 import googleIcon from './icons/google.svg';
 
 const useStyles = makeStyles({
-	headerIcon: { width: '80px', color: 'red' },
+	headerIcon: { width: '80px' },
 });
 
 export default function Header(props) {
@@ -23,7 +23,7 @@ export default function Header(props) {
 	const classes = useStyles();
 
 	return (
-		<AppBar position='static' style={{ backgroundColor: 'grey' }}>
+		<AppBar position='static' style={{ backgroundColor: '#d3d3d3' }}>
 			<Grid container justify='space-evenly' alignItems='center'>
 				<Grid item xs={2}>
 					<IconButton

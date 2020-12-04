@@ -78,10 +78,10 @@ function App() {
 
 	useEffect(() => {
 		getGlobalQuote('FB');
-		// getGlobalQuote('AAPL');
-		// getGlobalQuote('AMZN');
-		// getGlobalQuote('NFLX');
-		// getGlobalQuote('GOOGL');
+		getGlobalQuote('AAPL');
+		getGlobalQuote('AMZN');
+		getGlobalQuote('NFLX');
+		getGlobalQuote('GOOGL');
 	}, []);
 
 	const data = { FB, AAPL, AMZN, NFLX, GOOGL };

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Grid, Typography, makeStyles } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import TrendingDownIcon from '@material-ui/icons/TrendingDown';
 
 export default function TopInfo(props) {
 	const { dailyQuoteValues, dailyQuoteDates, metaData, companyName } = props;
@@ -87,8 +89,9 @@ export default function TopInfo(props) {
 
 				<Grid item className={classes.columnItem}>
 					<Typography className={classes.primary} variant='h4' noWrap>
-						${mostRecentQuote['1. open']}
+						${mostRecentQuote['4. close']}
 					</Typography>
+
 					<Typography
 						className={[classes.topLine, classes.posNeg]}
 						variant='h6'
@@ -96,6 +99,12 @@ export default function TopInfo(props) {
 						{' '}
 						{pointChange}
 					</Typography>
+					{pointChange > 0 ? (
+						<TrendingUpIcon className={classes.posNeg} />
+					) : (
+						<TrendingDownIcon className={classes.posNeg} />
+					)}
+
 					<Typography
 						className={[classes.topLine, classes.posNeg]}
 						variant='h6'
@@ -103,7 +112,18 @@ export default function TopInfo(props) {
 						{' '}
 						{percentChange}%
 					</Typography>
+					{pointChange > 0 ? (
+						<TrendingUpIcon className={classes.posNeg} />
+					) : (
+						<TrendingDownIcon className={classes.posNeg} />
+					)}
 				</Grid>
+			</Grid>
+
+			<Grid item xs>
+				<Typography variant='h6' className={classes.third}>
+					Last Updated: {metaData['3. Last Refreshed']}
+				</Typography>
 			</Grid>
 
 			<Grid item xs style={{ display: 'grid' }}>
@@ -112,6 +132,9 @@ export default function TopInfo(props) {
 					container
 					direction='column'
 					style={{ width: '300px', justifySelf: 'right', paddingTop: '10px' }}>
+					<Grid item>
+						<Typography className={classes.primary}>Daily Numbers</Typography>
+					</Grid>
 					<Grid item className={classes.columnItem2}>
 						<Typography className={classes.parameterTitles} variant='h6' noWrap>
 							Prev Close
