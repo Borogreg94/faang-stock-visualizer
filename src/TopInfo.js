@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Grid, Typography, makeStyles } from '@material-ui/core';
+import {
+	Container,
+	Grid,
+	Typography,
+	makeStyles,
+	Paper,
+} from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import TrendingDownIcon from '@material-ui/icons/TrendingDown';
@@ -55,8 +61,11 @@ export default function TopInfo(props) {
 			marginLeft: '20px',
 			alignSelf: 'center',
 		},
-		parameterTitles: {},
-		parameterValues: {},
+		paper: {
+			backgroundColor: 'transparent',
+			padding: '5px',
+			width: '100%',
+		},
 	}));
 	const classes = useStyles();
 
@@ -131,13 +140,17 @@ export default function TopInfo(props) {
 					className={classes.third}
 					container
 					direction='column'
-					style={{ width: '300px', justifySelf: 'right', paddingTop: '10px' }}>
+					style={{
+						width: '300px',
+						justifySelf: 'right',
+						paddingTop: '10px',
+					}}>
 					<Grid item>
 						<Typography className={classes.primary}>Daily Numbers</Typography>
 					</Grid>
 					<Grid item className={classes.columnItem2}>
 						<Typography className={classes.parameterTitles} variant='h6' noWrap>
-							Prev Close
+							Close
 						</Typography>
 						<Typography className={classes.parameterValues} variant='h6' noWrap>
 							{mostRecentQuote['4. close']}

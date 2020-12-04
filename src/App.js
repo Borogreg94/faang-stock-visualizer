@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import Header from './Header';
 import CurrentData from './CurrentData';
 import { useTheme } from '@material-ui/core/styles';
@@ -65,18 +65,19 @@ function App() {
 			const response = await fetch(
 				`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${apiKey}`
 			);
-			if (response.ok) {
-				const json = await response.json();
+			const json = await response.json();
+			if (!json.Note) {
+				console.log('json', json);
 				stateSetter(json, symbol);
 			} else {
-				console.log('no response from api');
+				console.log('No Response From API');
 			}
 		} catch (err) {
 			console.log(err);
 		}
 	}
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		getGlobalQuote('FB');
 		getGlobalQuote('AAPL');
 		getGlobalQuote('AMZN');

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Paper } from '@material-ui/core';
 import { Chart } from 'react-charts';
 import { useTheme } from '@material-ui/core/styles';
 
@@ -18,8 +18,6 @@ export default function VisualGraph(props) {
 		};
 		newArr.push(dataPoint);
 	}
-
-	console.log('newArr', newArr);
 
 	const data = React.useMemo(
 		() => [
@@ -56,28 +54,40 @@ export default function VisualGraph(props) {
 
 	return (
 		<Grid container justify='center'>
-			<Grid item xs={12} style={{ padding: '40px', paddingTop: '50px' }}>
-				<div
+			<Grid item xs={12} style={{ padding: '40px', paddingTop: '30px' }}>
+				<Paper
+					elevation={3}
 					style={{
-						width: '100%',
-						height: '300px',
-						paddingTop: '10px',
+						backgroundColor: 'transparent',
+						padding: '30px',
+						paddingBottom: '50px',
 					}}>
-					<Chart
-						data={data}
-						axes={axes}
-						getSeriesStyle={getSeriesStyle}
-						getDatumStyle={getDatumStyle}
-						dark={metaData['2. Symbol'] === 'NFLX' ? true : false}
-					/>
-				</div>
+					<div
+						style={{
+							width: '100%',
+							height: '300px',
+							paddingTop: '10px',
+						}}>
+						<Chart
+							data={data}
+							axes={axes}
+							getSeriesStyle={getSeriesStyle}
+							getDatumStyle={getDatumStyle}
+							dark={metaData['2. Symbol'] === 'NFLX' ? true : false}
+						/>
+						<Typography
+							style={{
+								color: palle.primary,
+								transition: 'color 1s',
+								marginTop: '10px',
+							}}>
+							- Daily Closing Price
+						</Typography>
+					</div>
+				</Paper>
 			</Grid>
 
-			<Grid item xs={12}>
-				<Typography style={{ color: palle.primary, transition: 'color 1s' }}>
-					- Daily Closing Price
-				</Typography>
-			</Grid>
+			<Grid item xs={12}></Grid>
 		</Grid>
 	);
 	// return null
