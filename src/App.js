@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import Header from './Header';
 import CurrentData from './CurrentData';
 import { useTheme } from '@material-ui/core/styles';
@@ -67,7 +67,6 @@ function App() {
 			);
 			const json = await response.json();
 			if (!json.Note) {
-				console.log('json', json);
 				stateSetter(json, symbol);
 			} else {
 				console.log('No Response From API');

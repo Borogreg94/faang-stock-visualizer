@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import {
-	Container,
-	Grid,
-	Typography,
-	makeStyles,
-	Paper,
-} from '@material-ui/core';
+import React from 'react';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import TrendingDownIcon from '@material-ui/icons/TrendingDown';
 
 export default function TopInfo(props) {
-	const { dailyQuoteValues, dailyQuoteDates, metaData, companyName } = props;
+	const { dailyQuoteValues, metaData, companyName } = props;
 
 	const mostRecentQuote = dailyQuoteValues[0];
 

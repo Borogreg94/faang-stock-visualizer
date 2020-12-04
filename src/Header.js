@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-	AppBar,
-	Toolbar,
-	Button,
-	Grid,
-	makeStyles,
-	IconButton,
-} from '@material-ui/core';
+import { AppBar, Grid, makeStyles, IconButton } from '@material-ui/core';
 
 import fbIcon from './icons/facebook.svg';
 import appleIcon from './icons/apple.svg';

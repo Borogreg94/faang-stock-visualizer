@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Grid, Typography, Paper } from '@material-ui/core';
 import { Chart } from 'react-charts';
 import { useTheme } from '@material-ui/core/styles';
