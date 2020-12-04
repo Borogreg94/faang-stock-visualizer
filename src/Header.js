@@ -1,38 +1,75 @@
 import React from 'react';
-import {AppBar, Toolbar, Button, Grid, makeStyles} from '@material-ui/core'
+import {
+	AppBar,
+	Toolbar,
+	Button,
+	Grid,
+	makeStyles,
+	IconButton,
+} from '@material-ui/core';
+
+import fbIcon from './icons/facebook.svg';
+import appleIcon from './icons/apple.svg';
+import amazonIcon from './icons/amazon.svg';
+import netflixIcon from './icons/netflix.svg';
+import googleIcon from './icons/google.svg';
 
 const useStyles = makeStyles({
-  headerButton: {fontSize: '30px'}
-})
+	headerIcon: { width: '80px', color: 'red' },
+});
 
-export default function Header(props){
+export default function Header(props) {
+	const { setCurSelect } = props;
+	const classes = useStyles();
 
-  const {setCurSelect} = props
-  const classes = useStyles();
+	return (
+		<AppBar position='static' style={{ backgroundColor: 'grey' }}>
+			<Grid container justify='space-evenly' alignItems='center'>
+				<Grid item xs={2}>
+					<IconButton
+						onClick={() => {
+							setCurSelect('FB');
+						}}>
+						<img className={classes.headerIcon} src={fbIcon} alt='fb' />
+					</IconButton>
+				</Grid>
 
-    return (
-    <AppBar position="static">
-        <Grid container justify='space-evenly'>
-          <Grid item xs={2}>
-          <Button className={classes.headerButton} onClick={()=>{setCurSelect('FB')}}>Facebook</Button>
-          </Grid>
+				<Grid item xs={2}>
+					<IconButton
+						onClick={() => {
+							setCurSelect('AAPL');
+						}}>
+						<img className={classes.headerIcon} src={appleIcon} alt='apple' />
+					</IconButton>
+				</Grid>
 
-          <Grid item xs={2}>
-          <Button className={classes.headerButton} onClick={()=>{setCurSelect('AAPL')}}>Apple</Button>
-          </Grid>
+				<Grid item xs={2}>
+					<IconButton
+						onClick={() => {
+							setCurSelect('AMZN');
+						}}>
+						<img className={classes.headerIcon} src={amazonIcon} alt='fb' />
+					</IconButton>
+				</Grid>
 
-          <Grid item xs={2}>
-          <Button className={classes.headerButton} onClick={()=>{setCurSelect('AMZN')}}>Amazon</Button>
-          </Grid>
+				<Grid item xs={2}>
+					<IconButton
+						onClick={() => {
+							setCurSelect('NFLX');
+						}}>
+						<img className={classes.headerIcon} src={netflixIcon} alt='fb' />
+					</IconButton>
+				</Grid>
 
-          <Grid item xs={2}>
-          <Button className={classes.headerButton} onClick={()=>{setCurSelect('NFLX')}}>Netflix</Button>
-          </Grid>
-
-          <Grid item xs={2}>
-          <Button className={classes.headerButton} onClick={()=>{setCurSelect('GOOGL')}}>Google</Button>
-          </Grid>
-        </Grid>
-  </AppBar>
-    );
+				<Grid item xs={2}>
+					<IconButton
+						onClick={() => {
+							setCurSelect('GOOGL');
+						}}>
+						<img className={classes.headerIcon} src={googleIcon} alt='fb' />
+					</IconButton>
+				</Grid>
+			</Grid>
+		</AppBar>
+	);
 }

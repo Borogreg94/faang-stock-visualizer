@@ -1,128 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import {Container, Grid, Typography, makeStyles} from '@material-ui/core'
-import {useTheme} from '@material-ui/core/styles'
-import VisualGraph from './VisualGraph'
+import React, { useState, useEffect } from 'react';
+import { Container, Grid, Typography, makeStyles } from '@material-ui/core';
+import VisualGraph from './VisualGraph';
+import TopInfo from './TopInfo';
 
+export default function CurrentData(props) {
+	const { data } = props;
 
+	const dailyQuoteValues = Object.values(data['Time Series (Daily)']);
 
+	const dailyQuoteDates = Object.keys(data['Time Series (Daily)']);
 
+	const metaData = data['Meta Data'];
 
+	const companyName = data.name;
 
-export default function CurrentData(props){
-    const {data} = props;
-    
-    const theme = useTheme()
-    const palle = theme.palette[data["Meta Data"]["2. Symbol"]]
+	return (
+		<>
+			<TopInfo
+				dailyQuoteValues={dailyQuoteValues}
+				dailyQuoteDates={dailyQuoteDates}
+				metaData={metaData}
+				companyName={companyName}
+			/>
 
-    const useStyles = makeStyles(theme => ({
-
-        root: {
-            textAlign: 'left'
-        },
-        columnItem: {
-            display: "flex",
-        },
-        columnItem2: {
-            display: "flex",
-            justifyContent: 'space-between',
-            color: palle.third
-        },
-        companyName: {
-            fontSize: '100px',
-        },
-        primary:{
-            color: palle.primary
-        },
-        secondary:{
-            color: palle.secondary
-        },
-        third:{
-            color: palle.secondary
-        },
-        topLine: {
-            height:'fit-content',
-             marginLeft: '20px',
-             alignSelf: 'center'
-        },
-        parameterTitles:{
-    
-        },
-        parameterValues: {
-        }
-    }))
-    const classes = useStyles();
-
-
-    function roundNum(num){
-        return Math.round(num * 100)/100
-    }
-
-    const dailyQuoteValues =  Object.values(data["Time Series (Daily)"])
-
-    const dailyQuoteDates = Object.keys(data["Time Series (Daily)"])
-
-    const mostRecentQuote = dailyQuoteValues[0]
-
-    const rawPointChange = mostRecentQuote["4. close"] - mostRecentQuote["1. open"]
-    const pointChange = roundNum(rawPointChange)
-
-    const rawPercentChange = ((mostRecentQuote["4. close"] - mostRecentQuote["1. open"])/(mostRecentQuote["1. open"])*100)
-    const percentChange = roundNum(rawPercentChange)
-    
-    const changeColor = pointChange > 0 ? 'green' : 'red';
-    
-    
-    
-
-    return (
-        
-    <>
-        <Grid className={classes.root} container justify='flex-start' alignItems='center' >
-
-            <Grid item container direction='column' xs>
-                <Grid item className={classes.columnItem}>
-                    <Typography className={[classes.companyName, classes.primary]} variant="h2" noWrap>{data.name}</Typography>
-                    <Typography style={{ height:'fit-content', marginLeft: '5px', alignSelf: 'center', color: palle.third}} variant="h5" noWrap>({data["Meta Data"]["2. Symbol"]})</Typography>
-                </Grid>
-
-                <Grid item className={classes.columnItem} >                
-                    <Typography style={{color: palle.primary}} variant='h4' noWrap>${mostRecentQuote["1. open"]}</Typography>
-                    <Typography className={classes.topLine} style={{color: changeColor}} variant="h6" noWrap> {pointChange}</Typography>
-                    <Typography className={classes.topLine} style={{color: changeColor}} variant="h6" noWrap> {percentChange}%</Typography>
-                </Grid>
-            </Grid>
-
-
-            <Grid item xs>
-                <Grid container direction='column' style={{width: '300px'}}>
-                    <Grid item className={classes.columnItem2}>
-                        <Typography className={classes.parameterTitles} variant='h6' noWrap>Prev Close</Typography>
-                        <Typography className={classes.parameterValues} variant='h6' noWrap>{mostRecentQuote["4. close"]}</Typography>
-                    </Grid>
-
-                    <Grid item  className={classes.columnItem2} >
-                        <Typography className={classes.parameterTitles} variant='h6' noWrap>Open</Typography>
-                        <Typography className={classes.parameterValues} variant='h6' noWrap>{mostRecentQuote["1. open"]}</Typography>
-                    </Grid>
-
-                    <Grid item  className={classes.columnItem2} >
-                        <Typography className={classes.parameterTitles} variant='h6' noWrap>Low/High</Typography>
-                        <Typography className={classes.parameterValues} variant='h6' noWrap>{mostRecentQuote["3. low"]} / {mostRecentQuote["2. high"]}</Typography>
-                    </Grid>
-
-                    <Grid item className={classes.columnItem2}>
-                        <Typography className={classes.parameterTitles} variant='h6' noWrap>Volume</Typography>
-                        <Typography className={classes.parameterValues} variant='h6' noWrap>{mostRecentQuote["6. volume"]}</Typography>
-                    </Grid>
-                </Grid>
-            </Grid>            
-        </Grid>
-
-        <VisualGraph dailyQuoteValues={dailyQuoteValues} dailyQuoteDates={dailyQuoteDates} />
-    </>
-    );
+			<VisualGraph
+				dailyQuoteValues={dailyQuoteValues}
+				dailyQuoteDates={dailyQuoteDates}
+			/>
+		</>
+	);
 }
-
 
 // {
 //     "Meta Data": {
