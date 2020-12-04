@@ -91,7 +91,7 @@ function App() {
 			className='App'
 			style={{
 				backgroundColor: palle.secondary,
-				transition: 'background-color 1s',
+				transition: 'background-color 2s',
 			}}>
 			<Header setCurSelect={setCurSelect} />
 

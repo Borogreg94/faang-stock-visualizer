@@ -40,21 +40,21 @@ export default function VisualGraph(props) {
 	const getSeriesStyle = React.useCallback(
 		() => ({
 			color: palle.primary,
-			transition: 'all .5s ease',
+			transition: 'all 1s ease',
 		}),
 		[dailyQuoteValues]
 	);
 
 	const getDatumStyle = React.useCallback(
 		() => ({
-			transition: 'all .5s ease',
+			transition: 'all 1s ease',
 		}),
 		[dailyQuoteValues]
 	);
 
 	return (
 		<Grid container justify='center'>
-			<Grid item xs={12} style={{ padding: '40px', paddingTop: '30px' }}>
+			<Grid item xs={12} style={{ padding: '20px', paddingTop: '30px' }}>
 				<Paper
 					elevation={3}
 					style={{

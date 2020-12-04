@@ -3,6 +3,7 @@ import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import TrendingDownIcon from '@material-ui/icons/TrendingDown';
+import AnimatedNumber from 'animated-number-react';
 
 export default function TopInfo(props) {
 	const { dailyQuoteValues, metaData, companyName } = props;
@@ -38,14 +39,15 @@ export default function TopInfo(props) {
 		},
 		primary: {
 			color: palle.primary,
-			transition: 'color 1s',
+			transition: 'color 2s',
 		},
 		secondary: {
 			color: palle.secondary,
-			transition: 'color 1s',
+			transition: 'color 2s',
 		},
 		third: {
 			color: palle.third,
+			transition: 'color 2s',
 		},
 		posNeg: {
 			color: changeColor,
@@ -66,6 +68,7 @@ export default function TopInfo(props) {
 	function roundNum(num) {
 		return Math.round(num * 100) / 100;
 	}
+	const formatDollar = (value) => value.toFixed(2);
 
 	return (
 		<Grid className={classes.root} container alignItems='center'>
@@ -92,7 +95,11 @@ export default function TopInfo(props) {
 
 				<Grid item className={classes.columnItem}>
 					<Typography className={classes.primary} variant='h4' noWrap>
-						${mostRecentQuote['4. close']}
+						$
+						<AnimatedNumber
+							value={mostRecentQuote['4. close']}
+							formatValue={formatDollar}
+						/>
 					</Typography>
 
 					<Typography
@@ -100,7 +107,7 @@ export default function TopInfo(props) {
 						variant='h6'
 						noWrap>
 						{' '}
-						{pointChange}
+						<AnimatedNumber value={pointChange} formatValue={formatDollar} />
 					</Typography>
 					{pointChange > 0 ? (
 						<TrendingUpIcon className={classes.posNeg} />
@@ -113,7 +120,7 @@ export default function TopInfo(props) {
 						variant='h6'
 						noWrap>
 						{' '}
-						{percentChange}%
+						<AnimatedNumber value={percentChange} formatValue={formatDollar} />%
 					</Typography>
 					{pointChange > 0 ? (
 						<TrendingUpIcon className={classes.posNeg} />
@@ -147,7 +154,11 @@ export default function TopInfo(props) {
 							Close
 						</Typography>
 						<Typography className={classes.parameterValues} variant='h6' noWrap>
-							{mostRecentQuote['4. close']}
+							$
+							<AnimatedNumber
+								value={mostRecentQuote['4. close']}
+								formatValue={formatDollar}
+							/>
 						</Typography>
 					</Grid>
 
@@ -156,7 +167,11 @@ export default function TopInfo(props) {
 							Open
 						</Typography>
 						<Typography className={classes.parameterValues} variant='h6' noWrap>
-							{mostRecentQuote['1. open']}
+							$
+							<AnimatedNumber
+								value={mostRecentQuote['1. open']}
+								formatValue={formatDollar}
+							/>
 						</Typography>
 					</Grid>
 
@@ -165,7 +180,16 @@ export default function TopInfo(props) {
 							Low/High
 						</Typography>
 						<Typography className={classes.parameterValues} variant='h6' noWrap>
-							{mostRecentQuote['3. low']} / {mostRecentQuote['2. high']}
+							$
+							<AnimatedNumber
+								value={mostRecentQuote['3. low']}
+								formatValue={formatDollar}
+							/>
+							/$
+							<AnimatedNumber
+								value={mostRecentQuote['2. high']}
+								formatValue={formatDollar}
+							/>
 						</Typography>
 					</Grid>
 
@@ -174,7 +198,10 @@ export default function TopInfo(props) {
 							Volume
 						</Typography>
 						<Typography className={classes.parameterValues} variant='h6' noWrap>
-							{mostRecentQuote['6. volume']}
+							<AnimatedNumber
+								value={mostRecentQuote['6. volume']}
+								formatValue={formatDollar}
+							/>
 						</Typography>
 					</Grid>
 				</Grid>
