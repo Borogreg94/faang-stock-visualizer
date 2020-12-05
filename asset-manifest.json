@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/faang-stock-visualizer/static/css/main.5d7d8e04.chunk.css",
+    "main.js": "/faang-stock-visualizer/static/js/main.9d44ab3b.chunk.js",
+    "main.js.map": "/faang-stock-visualizer/static/js/main.9d44ab3b.chunk.js.map",
+    "runtime-main.js": "/faang-stock-visualizer/static/js/runtime-main.8d1c3e41.js",
+    "runtime-main.js.map": "/faang-stock-visualizer/static/js/runtime-main.8d1c3e41.js.map",
+    "static/js/2.20fadd3d.chunk.js": "/faang-stock-visualizer/static/js/2.20fadd3d.chunk.js",
+    "static/js/2.20fadd3d.chunk.js.map": "/faang-stock-visualizer/static/js/2.20fadd3d.chunk.js.map",
+    "static/js/3.7968b008.chunk.js": "/faang-stock-visualizer/static/js/3.7968b008.chunk.js",
+    "static/js/3.7968b008.chunk.js.map": "/faang-stock-visualizer/static/js/3.7968b008.chunk.js.map",
+    "index.html": "/faang-stock-visualizer/index.html",
+    "static/css/main.5d7d8e04.chunk.css.map": "/faang-stock-visualizer/static/css/main.5d7d8e04.chunk.css.map",
+    "static/js/2.20fadd3d.chunk.js.LICENSE.txt": "/faang-stock-visualizer/static/js/2.20fadd3d.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/faang-stock-visualizer/static/media/Oswald-Medium.3586ec85.ttf",
+    "static/media/amazon.8a708a0e.svg": "/faang-stock-visualizer/static/media/amazon.8a708a0e.svg",
+    "static/media/apple.f779a62f.svg": "/faang-stock-visualizer/static/media/apple.f779a62f.svg",
+    "static/media/facebook.3f7115f9.svg": "/faang-stock-visualizer/static/media/facebook.3f7115f9.svg",
+    "static/media/google.92b8040a.svg": "/faang-stock-visualizer/static/media/google.92b8040a.svg",
+    "static/media/netflix.ffb28b32.svg": "/faang-stock-visualizer/static/media/netflix.ffb28b32.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8d1c3e41.js",
+    "static/js/2.20fadd3d.chunk.js",
+    "static/css/main.5d7d8e04.chunk.css",
+    "static/js/main.9d44ab3b.chunk.js"
+  ]
+}
