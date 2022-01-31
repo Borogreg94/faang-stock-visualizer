@@ -63,7 +63,7 @@ function App() {
 	async function getGlobalQuote(symbol) {
 		try {
 			const response = await fetch(
-				`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${symbol}&apikey=${apiKey}`
+				`https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${apiKey}`
 			);
 			const json = await response.json();
 			if (!json.Note) {
