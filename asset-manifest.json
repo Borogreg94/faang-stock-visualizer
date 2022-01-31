@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/faang-stock-visualizer/static/css/main.5d7d8e04.chunk.css",
-    "main.js": "/faang-stock-visualizer/static/js/main.9d44ab3b.chunk.js",
-    "main.js.map": "/faang-stock-visualizer/static/js/main.9d44ab3b.chunk.js.map",
+    "main.js": "/faang-stock-visualizer/static/js/main.99a74a01.chunk.js",
+    "main.js.map": "/faang-stock-visualizer/static/js/main.99a74a01.chunk.js.map",
     "runtime-main.js": "/faang-stock-visualizer/static/js/runtime-main.8d1c3e41.js",
     "runtime-main.js.map": "/faang-stock-visualizer/static/js/runtime-main.8d1c3e41.js.map",
     "static/js/2.20fadd3d.chunk.js": "/faang-stock-visualizer/static/js/2.20fadd3d.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.8d1c3e41.js",
     "static/js/2.20fadd3d.chunk.js",
     "static/css/main.5d7d8e04.chunk.css",
-    "static/js/main.9d44ab3b.chunk.js"
+    "static/js/main.99a74a01.chunk.js"
   ]
 }
